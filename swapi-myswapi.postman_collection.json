@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "6e9b3b65-7ef5-4994-91d4-b3e867a8055d",
+		"name": "swapi-myswapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29503127"
+	},
+	"item": [
+		{
+			"name": "swapi",
+			"item": [
+				{
+					"name": "get-swapi-js",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://5aavog2uyc.execute-api.us-east-1.amazonaws.com/dev/swapi/:resource/:id",
+							"protocol": "https",
+							"host": [
+								"5aavog2uyc",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"swapi",
+								":resource",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "resource",
+									"value": "people",
+									"description": "films,people,planets,species,starships,vehicles"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "myswapi",
+			"item": [
+				{
+					"name": "post-personaje-myswapi-js",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"C-3PO\",\r\n    \"altura\": \"167\",\r\n    \"peso\": \"75\",\r\n    \"color_cabello\": \"n/a\",\r\n    \"color_piel\": \"gold\",\r\n    \"color_ojos\": \"yellow\",\r\n    \"año_nacimiento\": \"112BBY\",\r\n    \"genero\": \"n/a\",\r\n    \"mundo_natal\": \"https://swapi.py4e.com/api/planets/1/\",\r\n    \"peliculas\": [\r\n        \"https://swapi.py4e.com/api/films/1/\",\r\n        \"https://swapi.py4e.com/api/films/2/\",\r\n        \"https://swapi.py4e.com/api/films/3/\",\r\n        \"https://swapi.py4e.com/api/films/4/\",\r\n        \"https://swapi.py4e.com/api/films/5/\",\r\n        \"https://swapi.py4e.com/api/films/6/\"\r\n    ],\r\n    \"especies\": [\r\n        \"https://swapi.py4e.com/api/species/2/\"\r\n    ],\r\n    \"vehiculos\": [],\r\n    \"naves_estelares\": [],\r\n    \"creado\": \"2014-12-10T15:10:51.357000Z\",\r\n    \"editado\": \"2014-12-20T21:17:50.309000Z\",\r\n    \"url\": \"https://swapi.py4e.com/api/people/2/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://5aavog2uyc.execute-api.us-east-1.amazonaws.com/dev/myswapi/:resource/:id",
+							"protocol": "https",
+							"host": [
+								"5aavog2uyc",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"myswapi",
+								":resource",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "resource",
+									"value": "personajes",
+									"description": "peliculas,personajes,planetas,especies,naves-estelares,vehiculos"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-personaje-myswapi-js",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://5aavog2uyc.execute-api.us-east-1.amazonaws.com/dev/myswapi/:resource/:id",
+							"protocol": "https",
+							"host": [
+								"5aavog2uyc",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"myswapi",
+								":resource",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "resource",
+									"value": "personajes",
+									"description": "peliculas,personajes,planetas,especies,naves-estelares,vehiculos"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-personaje-myswapi-js",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://5aavog2uyc.execute-api.us-east-1.amazonaws.com/dev/myswapi/:resource/:id",
+							"protocol": "https",
+							"host": [
+								"5aavog2uyc",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"myswapi",
+								":resource",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "resource",
+									"value": "personajes",
+									"description": "peliculas,personajes,planetas,especies,naves-estelares,vehiculos"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
