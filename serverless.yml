@@ -1,0 +1,168 @@
+service: swapi
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: dynamodb:*
+          Resource: 
+            - "arn:aws:dynamodb:us-east-1:<nroCuenta>:table/tabla-peliculas"
+            - "arn:aws:dynamodb:us-east-1:<nroCuenta>:table/tabla-personajes"
+            - "arn:aws:dynamodb:us-east-1:<nroCuenta>:table/tabla-planetas"
+            - "arn:aws:dynamodb:us-east-1:<nroCuenta>:table/tabla-especies"
+            - "arn:aws:dynamodb:us-east-1:<nroCuenta>:table/tabla-naves-estelares"
+            - "arn:aws:dynamodb:us-east-1:<nroCuenta>:table/tabla-vehiculos"
+
+plugins:
+  - serverless-offline
+  - serverless-dynamodb
+
+custom:
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+
+resources:
+  Resources:
+    tablaPeliculas:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: tabla-peliculas
+        AttributeDefinitions:
+          - AttributeName: url
+            AttributeType: S
+        KeySchema:
+          - AttributeName: url
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    
+    tablaPersonajes:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: tabla-personajes
+        AttributeDefinitions:
+          - AttributeName: url
+            AttributeType: S
+        KeySchema:
+          - AttributeName: url
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    
+    tablaPlanetas:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: tabla-planetas
+        AttributeDefinitions:
+          - AttributeName: url
+            AttributeType: S
+        KeySchema:
+          - AttributeName: url
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    
+    tablaEspecies:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: tabla-especies
+        AttributeDefinitions:
+          - AttributeName: url
+            AttributeType: S
+        KeySchema:
+          - AttributeName: url
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+
+    tablaNavesEstelares:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: tabla-naves-estelares
+        AttributeDefinitions:
+          - AttributeName: url
+            AttributeType: S
+        KeySchema:
+          - AttributeName: url
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    
+    tablaVehiculos:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: tabla-vehiculos
+        AttributeDefinitions:
+          - AttributeName: url
+            AttributeType: S
+        KeySchema:
+          - AttributeName: url
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+functions:
+  swapi-get:
+    handler: src/get-swapi/handler.getSwapi
+    events:
+      - http:
+          path: swapi/{resource}/{id}
+          method: GET
+          request:
+            parameters:
+              paths:
+                resource: true
+                id: true
+  
+  myswapi-create-resource:
+    handler: src/myswapi/create-resource/handler.createResource
+    events:
+      - http:
+          path: myswapi/{resource}/{id}
+          method: POST
+          request:
+            parameters:
+              paths:
+                resource: true
+                id: true
+  
+  myswapi-get-resource:
+    handler: src/myswapi/get-resource/handler.getResource
+    events:
+      - http:
+          path: myswapi/{resource}/{id}
+          method: GET
+          request:
+            parameters:
+              paths:
+                resource: true
+                id: true
+  
+  myswapi-delete-resource:
+    handler: src/myswapi/delete-resource/handler.deleteResource
+    events:
+      - http:
+          path: myswapi/{resource}/{id}
+          method: DELETE
+          request:
+            parameters:
+              paths:
+                resource: true
+                id: true
+
+      

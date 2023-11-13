@@ -1,0 +1,18 @@
+{
+  "name": "rimac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "^2.1492.0",
+    "serverless": "^3.21.0",
+    "serverless-dynamodb": "^0.2.47",
+    "serverless-offline": "^13.2.1"
+  }
+}
